@@ -1,3 +1,5 @@
+const { render, getByRole, screen, getByText } = require('@testing-library/react')
+const { default: Home } = require('./Home')
 
 const user = {
   id: 1,
@@ -10,6 +12,30 @@ const user = {
   color: 'crimson',
 }
 
-test('Should render the user profile', () => {
+test('Should render the user profile', async () => {
+  render(<Home user={user} />)
+  // Renders an avatar
+  const img = screen.getByAltText('avatar')
 
+  // renders a name
+  const name = screen.getByText('Vonta')
+
+  // renders a motto
+  const motto = screen.getByLabelText('motto')
+
+  // interests heading
+
+  // renders a header image
+  const headerImg = screen.getByAltText('header')
+
+  // renders list of likes
+  const listItems = screen.getAllByRole('listitem')
+
+  // Renders elements equal to the array length
+  expect(listItems.length).toEqual(user.likes.length)
+
+  // likes text content appears on the page
+  user.likes.forEach((item) => screen.getByText(`${item}`))
+
+  screen.getByText('Interests')
 })
