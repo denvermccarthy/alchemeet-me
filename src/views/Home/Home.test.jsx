@@ -15,18 +15,18 @@ const user = {
 test('Should render the user profile', async () => {
   render(<Home user={user} />)
   // Renders an avatar
-  const img = screen.getByAltText('avatar')
+  screen.getByAltText('avatar')
 
   // renders a name
-  const name = screen.getByText('Vonta')
+  screen.getByText('Vonta')
 
   // renders a motto
-  const motto = screen.getByLabelText('motto')
+  screen.getByLabelText('motto')
 
   // interests heading
 
   // renders a header image
-  const headerImg = screen.getByAltText('header')
+  screen.getByAltText('header')
 
   // renders list of likes
   const listItems = screen.getAllByRole('listitem')
