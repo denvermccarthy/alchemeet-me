@@ -39,3 +39,4 @@ test('Should render the user profile', async () => {
 
   screen.getByText('Interests')
 })
+//
